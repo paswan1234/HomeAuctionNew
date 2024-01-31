@@ -73,7 +73,6 @@ module.exports = {
           'Button',
           'Menu',
           'Form.Select',
-          'TablePagination',
         ],
       },
     ],
