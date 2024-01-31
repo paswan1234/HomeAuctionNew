@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@auction/*": ["./src/*"]
+    }
+  },
+  "include": ["./src"],
+  "exclude": ["node_modules"]
+}

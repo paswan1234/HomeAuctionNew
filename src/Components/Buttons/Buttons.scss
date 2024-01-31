@@ -1,0 +1,36 @@
+@import '../../assets/scss/module/variables.scss';
+
+.button {
+  outline: none;
+  border-radius: 50px;
+  align-items: center;
+  padding: 12px 28px;
+  @include font-family;
+  font-family: inherit;
+  position: relative;
+  line-height: 1;
+  font-weight: 600;
+  // text-transform: capitalize;
+
+  &.outline-secondary {
+    padding: 11px 28px;
+    border: solid 1px $col5;
+    color: $col5;
+    background-color: transparent;
+    transition: 0.3s all;
+    &:hover,
+    &:focus {
+      background: $col2;
+    }
+    &.btn-gray {
+      border: solid 1px $col2;
+      background: transparent;
+      &:hover,
+      &:focus {
+        border: solid 1px $col2;
+        background: $col2;
+        color: $col1 !important;
+      }
+    }
+  }
+}

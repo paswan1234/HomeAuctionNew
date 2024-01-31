@@ -1,0 +1,19 @@
+@import './module/variables.scss';
+* {
+  word-break: break-word;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+body {
+  background-repeat: repeat-y;
+  background-size: cover;
+  background-position: top;
+}
+
+// utility classes
+.cursor-pointer {
+  cursor: pointer;
+}
+.line-initial {
+  line-height: initial;
+}

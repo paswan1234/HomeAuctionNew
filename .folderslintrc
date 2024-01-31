@@ -1,0 +1,13 @@
+{
+  "root": "src",
+  "rules": [
+    "Components/*",
+    "Layout/*",
+    "Pages/*",
+    "Routes/*",
+    "assets/**",
+    "Services/**",
+    "Helpers/*",
+    "Hooks/*"
+  ]
+}

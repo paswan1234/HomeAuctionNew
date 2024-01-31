@@ -1,0 +1,17 @@
+@import '../../assets/scss/module/variables.scss';
+
+.breadcrumb {
+  margin-bottom: 0 !important;
+  .breadcrumb-item {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    &.active {
+      color: $col4;
+    }
+    a {
+      color: $col1;
+    }
+  }
+}
