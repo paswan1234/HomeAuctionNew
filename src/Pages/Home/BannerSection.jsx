@@ -1,5 +1,5 @@
 import { Col, Container, Dropdown, Form, Row } from 'react-bootstrap'
-import Buttons from '@auction/Components/Buttons'
+import { Button } from '@auction/Components/Buttons'
 
 import './Home.scss'
 
@@ -42,7 +42,7 @@ function BannerSection() {
                   </div>
                 </div>
                 <div className="searchBttn searchBttn2 greenBtnBanner ms-md-auto">
-                  <Buttons
+                  <Button
                     text="Search"
                     className="greenBtn2 text-white fw700 transition d-flex align-tems-center"
                   />
