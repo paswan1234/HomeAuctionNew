@@ -1,5 +1,7 @@
 import BannerSection from './BannerSection'
+import CardListing from './CardListing'
 import CardOne from './CardOne'
+import NewsletterSection from './NewsletterSection'
 import TopHeader from './TopHeader'
 
 import './Home.scss'
@@ -10,6 +12,8 @@ function DashboardPage() {
       <TopHeader />
       <BannerSection />
       <CardOne />
+      <NewsletterSection />
+      <CardListing />
     </div>
   )
 }
