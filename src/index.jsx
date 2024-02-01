@@ -1,16 +1,20 @@
+import { lazy, Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 
 import { BrowserRouter } from 'react-router-dom'
-import App from '@auction/App'
 import reportWebVitals from '@auction/reportWebVitals'
 
 import '@auction/index.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+const App = lazy(() => import('@auction/App'))
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <BrowserRouter>
-    <App />
+    <Suspense>
+      <App />
+    </Suspense>
   </BrowserRouter>
 )
 

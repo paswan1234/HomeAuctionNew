@@ -76,6 +76,7 @@ module.exports = {
         ],
       },
     ],
+    'prettier/prettier': 'off',
     'import/no-unresolved': 'error',
     'react/require-default-props': 'error',
     'react/no-unescaped-entities': 'error',
