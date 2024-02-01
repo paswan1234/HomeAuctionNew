@@ -1,8 +1,9 @@
+import TopHeader from '@auction/Layout/Header'
+
 import BannerSection from './BannerSection'
-import CardListing from './CardListing'
 import CardOne from './CardOne'
+import HomePropertyList from './HomePropertyList'
 import NewsletterSection from './NewsletterSection'
-import TopHeader from './TopHeader'
 
 import './Home.scss'
 
@@ -13,7 +14,7 @@ function DashboardPage() {
       <BannerSection />
       <CardOne />
       <NewsletterSection />
-      <CardListing />
+      <HomePropertyList />
     </div>
   )
 }

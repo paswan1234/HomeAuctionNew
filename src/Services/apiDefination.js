@@ -1,10 +1,13 @@
 const ApiDefination = {
-  homeApi: {
-    url: '/news/update-news-status?id=:id',
-    method: 'PUT',
-    data: {
-      status: '',
-    },
+  searchProperty: {
+    url: '/dropdown-search?keyword=:keyword',
+    method: 'GET',
+    data: {},
+  },
+  getPropertyList: {
+    url: '/property-search?city=:city&state=:state&zip=:zip',
+    method: 'GET',
+    data: {},
   },
 }
 export default ApiDefination

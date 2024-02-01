@@ -1,9 +1,18 @@
+import { useRef } from 'react'
+
 import { Col, Container, Dropdown, Form, Row } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 import { Button } from '@auction/Components/Buttons'
+import SearchPropertyField from '@auction/Components/SearchProperty'
+
+import ROUTES from '@auction/Routes/routes'
 
 import './Home.scss'
 
 function BannerSection() {
+  const navigate = useNavigate()
+  const typeaheadRef = useRef(null)
+
   return (
     <section className="bannerSection">
       <Container>
@@ -17,6 +26,16 @@ function BannerSection() {
                 The Right Location, The Right Price!
               </p>
               <div className="searchBox posRel">
+                <SearchPropertyField
+                  handleChange={(data) => {
+                    navigate(
+                      `${ROUTES.propertyList.base}/${data[0].property_city}/${data[0].property_state}/${data[0].property_zip}`
+                    )
+                  }}
+                  ref={typeaheadRef}
+                />
+              </div>
+              <div className="searchBox posRel d-none">
                 <div className="dropdownBlock h-100">
                   <Dropdown>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
