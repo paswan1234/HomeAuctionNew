@@ -7,8 +7,8 @@ import Logo from '@auction/assets/images/logo.svg'
 function TopHeader() {
   return (
     <Container fluid>
-      <Link to="/">
-        <div className="logo-set py-4">
+      <div className="logo-set py-4">
+        <Link to="/">
           <Image
             src={Logo}
             width="270"
@@ -16,8 +16,8 @@ function TopHeader() {
             title="Welcome to Auction"
             className="img-fuild"
           />
-        </div>
-      </Link>
+        </Link>
+      </div>
     </Container>
   )
 }

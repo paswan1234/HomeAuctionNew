@@ -26,7 +26,9 @@ function SearchPropertyField({ handleChange, onClear }, ref) {
       ref={ref}
       onChange={handleChange}
       options={searchData}
-      labelKey={(option) => `${option?.property_city}`}
+      labelKey={(option) =>
+        `${option?.property_city},${option?.property_state}`
+      }
       placeholder="Enter City or State"
       onSearch={(query) => handleSearch(query)}
       onInputChange={(query) => {

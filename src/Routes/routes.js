@@ -5,6 +5,9 @@ const ROUTES = {
     propertyListing:
       '/propertyListing/:property_city/:property_state/:property_zip',
   },
+  propertyDetails: {
+    base: '/property-details',
+  },
 }
 
 export default ROUTES
