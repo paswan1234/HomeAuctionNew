@@ -57,7 +57,7 @@ body {
         display: flex;
         align-items: center;
 
-        .form-check-input[type=checkbox] {
+        .form-check-input[type='checkbox'] {
           width: 24px;
           height: 24px;
           box-shadow: none !important;
@@ -76,7 +76,6 @@ body {
           padding-left: 8px;
         }
       }
-
     }
 
     .num-ul {
@@ -91,11 +90,9 @@ body {
           color: $col1;
           font-weight: 500;
           line-height: initial;
-
         }
 
         button {
-
           &.inc-btn,
           &.dis-btn {
             display: flex;
@@ -116,7 +113,6 @@ body {
         }
       }
     }
-
   }
 }
 
@@ -129,7 +125,6 @@ body {
       color: $col1 !important;
     }
   }
-
 }
 
 .border-center-width {

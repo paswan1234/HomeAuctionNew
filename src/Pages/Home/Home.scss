@@ -201,6 +201,12 @@
   background-color: $col12;
 }
 
+.home-slide {
+  .sliderItem {
+    margin: 10px;
+  }
+}
+
 .sliderItem {
   border-radius: 4px;
   position: relative;
