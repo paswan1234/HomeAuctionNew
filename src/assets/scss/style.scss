@@ -1,9 +1,11 @@
 @import './module/variables.scss';
+
 * {
   word-break: break-word;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
 }
+
 body {
   background-repeat: repeat-y;
   background-size: cover;
@@ -14,6 +16,120 @@ body {
 .cursor-pointer {
   cursor: pointer;
 }
+
 .line-initial {
   line-height: initial;
+}
+
+.filterWhiteBox {
+  border: 1px solid $col8;
+  box-shadow: 0px 4px 24px rgb(209 209 209 / 24%);
+  border-radius: 8px;
+  background-color: $col6;
+  padding: 0px 20px;
+
+  .accordian-one {
+    .accordion-item {
+      border: none;
+      padding: 25px 0px;
+      border-radius: 0px;
+      border-bottom: solid 1px $col8;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .accordion-header {
+        border: none;
+
+        .accordion-button {
+          padding: 0 0;
+          background-color: transparent;
+          border: none;
+          box-shadow: none;
+          font-size: 16px;
+          color: $col1;
+          font-weight: 600;
+        }
+      }
+
+      .form-check-inline {
+        display: flex;
+        align-items: center;
+
+        .form-check-input[type='checkbox'] {
+          width: 24px;
+          height: 24px;
+          box-shadow: none !important;
+
+          &:focus {
+            border-color: $col8;
+          }
+        }
+
+        .form-check-label {
+          font-size: 16px;
+          color: $col1;
+          font-weight: 500;
+          line-height: initial;
+          padding-top: 5px;
+          padding-left: 8px;
+        }
+      }
+    }
+
+    .num-ul {
+      align-items: center;
+
+      li {
+        list-style: none;
+        margin-left: 15px;
+
+        .num-text {
+          font-size: 16px;
+          color: $col1;
+          font-weight: 500;
+          line-height: initial;
+        }
+
+        button {
+          &.inc-btn,
+          &.dis-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid $col8;
+            box-shadow: 0px 4px 24px rgb(209 209 209 / 24%);
+            min-width: 32px;
+            max-width: 32px;
+            height: 32px;
+            text-align: center;
+            line-height: 32px;
+            border-radius: 4px;
+            font-size: 24px;
+            background: transparent;
+            color: $col1;
+          }
+        }
+      }
+    }
+  }
+}
+
+.dropdown-filters {
+  .dropdown {
+    button {
+      box-shadow: none !important;
+      background: transparent !important;
+      border: solid 1px #ccc !important;
+      color: $col1 !important;
+    }
+  }
+}
+
+.border-center-width {
+  width: 12px;
+  height: 2px;
+  background-color: $col3;
+  display: block;
 }

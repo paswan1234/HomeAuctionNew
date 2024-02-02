@@ -14,7 +14,7 @@ function HomePropertyList() {
           </h2>
           <p className="text-col1 fs-16 fw500">Showing 1-25 properties of 48</p>
         </div>
-        <div>
+        <div className="home-slide">
           <Slider>
             <PropertyCard />
             <PropertyCard />
