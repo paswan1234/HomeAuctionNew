@@ -25,7 +25,8 @@ function BannerSection() {
               <p className="text-white fs-32 line-initial mb-0 fw400">
                 The Right Location, The Right Price!
               </p>
-              <div className="searchBox posRel">
+              <div className="searchBox search-user posRel">
+                <i className="fa fa-search search-icons" />
                 <SearchPropertyField
                   handleChange={(data) => {
                     navigate(
@@ -33,6 +34,10 @@ function BannerSection() {
                     )
                   }}
                   ref={typeaheadRef}
+                />
+                <Button
+                  text="Search"
+                  className="greenBtn2 text-white fw700 transition d-flex align-tems-center"
                 />
               </div>
               <div className="searchBox posRel d-none">
