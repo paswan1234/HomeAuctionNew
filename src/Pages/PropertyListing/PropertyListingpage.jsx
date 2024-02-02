@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react'
 
+import { Col, Container, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
+import Pagination from '@auction/Components/Pagination'
+import PropertyCard from '@auction/Components/PropertyCard'
 import TopHeader from '@auction/Layout/Header'
 import mainApiService from '@auction/Services/apiService'
 
-import PropertyList from './PropertyList'
+import FilterSection from './FilterSection'
 
 function PropertyListingpage() {
   const {
@@ -38,7 +41,34 @@ function PropertyListingpage() {
     <div>
       {/* start writing your code inside below component */}
       <TopHeader />
-      <PropertyList propertyList={propertyList} />
+      <section className="card-listing py-5">
+        <Container fluid>
+          <Row>
+            <Col sm={3}>
+              <FilterSection />
+            </Col>
+            <Col sm={9}>
+              <div className="titleSection">
+                <h2 className="text-col1 fs-24 fw500">
+                  Foreclosures properties in Jersey City, New Jersey
+                </h2>
+                <p className="text-col1 fs-16 fw500">
+                  Showing 1-{propertyList?.length} properties of{' '}
+                  {propertyList?.length}
+                </p>
+              </div>
+              <Row>
+                {propertyList?.map((list) => (
+                  <Col key={list.PMXPropertyId} md={4}>
+                    <PropertyCard propertyData={list} />
+                  </Col>
+                ))}
+              </Row>
+              <Pagination totalPageCount={Math.ceil(100 / 10)} />
+            </Col>
+          </Row>
+        </Container>
+      </section>
     </div>
   )
 }

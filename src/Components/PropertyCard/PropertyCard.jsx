@@ -1,9 +1,13 @@
 import { Button } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 import Image from '@auction/Components/Image'
+
+import ROUTES from '@auction/Routes/routes'
 
 import CardoneImg from '@auction/assets/images/pro1.png'
 
-export default function PropertyCard() {
+export default function PropertyCard({ propertyData }) {
+  const navigate = useNavigate()
   return (
     <div>
       <div className="sliderItem">
@@ -45,7 +49,16 @@ export default function PropertyCard() {
             </ul>
           </div>
           <div className="linkproperty text-center">
-            <Button className="fs-16 p-0 bg-transparent fw600 text-col4">
+            <Button
+              className="fs-16 p-0 bg-transparent fw600 text-col4"
+              onClick={() =>
+                navigate(ROUTES.propertyDetails.base, {
+                  state: {
+                    property: propertyData,
+                  },
+                })
+              }
+            >
               View Property Details
             </Button>
           </div>
