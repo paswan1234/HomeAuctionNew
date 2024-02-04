@@ -8,7 +8,7 @@ import '@auction/Components/Pagination/Pagination.scss'
 
 function Paginations({ totalPageCount, forcePage, handlePageClick }) {
   return (
-    <div className="d-flex align-items-center flex-column flex-lg-row justify-content-between w-100">
+    <div className="d-flex align-items-center flex-column flex-lg-row justify-content-center w-100">
       <ReactPaginate
         breakLabel="..."
         nextLabel={<Image src={NextPage} />}

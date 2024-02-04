@@ -30,7 +30,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      color: $col2;
+      color: $col1;
 
       &:hover,
       &:focus {
@@ -64,7 +64,7 @@
     &.active {
       .page-link {
         background: $col6;
-        color: $col13;
+        color: $col2;
         border: 1px solid $col50;
       }
     }
