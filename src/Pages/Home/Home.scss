@@ -139,7 +139,7 @@
         max-height: 275px;
       }
 
-      &>img {
+      & > img {
         width: 100%;
         height: 100%;
         border-radius: 12px;
@@ -233,13 +233,13 @@
       min-height: 269px;
       max-height: 269px;
 
-      &>img {
+      & > img {
         min-height: 269px;
         max-height: 269px;
       }
     }
 
-    &>img {
+    & > img {
       width: 100%;
       height: 100%;
     }
@@ -386,7 +386,7 @@
     }
   }
 
-  &>div {
+  & > div {
     width: 100%;
   }
 
@@ -446,7 +446,7 @@
         max-height: 500px;
       }
 
-      &>img {
+      & > img {
         width: 100%;
         height: 100%;
         border-radius: 12px;
@@ -652,7 +652,7 @@
     align-items: center;
     margin-right: 33px;
 
-    &>img {
+    & > img {
       margin-right: 9px;
     }
 
@@ -673,7 +673,7 @@
     font-size: 16px !important;
   }
 
-  &>img {
+  & > img {
     margin-right: 8px;
   }
 }
@@ -711,7 +711,7 @@
   position: relative;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     background: linear-gradient(180deg, $col6 0%, rgba(255, 255, 255, 0) 100%);
     width: 100%;
@@ -752,7 +752,6 @@
 }
 
 .descriptn {
-
   table,
   table th,
   table td {
