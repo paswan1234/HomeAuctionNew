@@ -371,6 +371,12 @@
       .dropdown-item {
         color: $col1;
         padding: 10px 24px;
+        font-size: 15px;
+        text-transform: inherit;
+
+        mark {
+          padding: 0.1rem;
+        }
 
         &:hover,
         &:focus {
@@ -695,5 +701,61 @@
       text-decoration: none;
       font-weight: 500;
     }
+  }
+}
+
+.boxbtn {
+  border-radius: 7px;
+  box-shadow: 0px 8px 16px rgb(52 94 168 / 20%);
+  padding: 24px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background: linear-gradient(180deg, $col6 0%, rgba(255, 255, 255, 0) 100%);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .longBtn {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    border-radius: 9999px;
+    height: 48px;
+    color: $col6;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    background: $col4;
+    border: solid 1px $col4;
+  }
+}
+
+.questions {
+  background: $col17;
+  border-radius: 8px;
+  padding: 24px;
+
+  .greenBtnLongBtn {
+    background: $col16;
+    border: solid 1px $col16;
+    color: $col6;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 999px;
+    display: inline-block;
+  }
+}
+
+.descriptn {
+  table,
+  table th,
+  table td {
+    border: none;
+    padding: 0;
   }
 }
