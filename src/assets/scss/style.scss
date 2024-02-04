@@ -3,13 +3,14 @@
 * {
   word-break: break-word;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 body {
   background-repeat: repeat-y;
   background-size: cover;
   background-position: top;
+  font-family: "Inter", sans-serif;
 }
 
 // utility classes
@@ -93,6 +94,7 @@ body {
         }
 
         button {
+
           &.inc-btn,
           &.dis-btn {
             display: flex;
