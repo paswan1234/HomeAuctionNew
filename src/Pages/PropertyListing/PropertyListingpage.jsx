@@ -44,11 +44,11 @@ function PropertyListingpage() {
       <section className="card-listing py-5">
         <Container fluid>
           <Row>
-            <Col sm={3}>
+            <Col lg={4} xl={3}>
               <FilterSection />
             </Col>
-            <Col sm={9}>
-              <div className="titleSection">
+            <Col lg={8} xl={9}>
+              <div className="titleSection mt-4 mt-lg-0">
                 <h2 className="text-col1 fs-24 fw500">
                   Foreclosures properties in Jersey City, New Jersey
                 </h2>
