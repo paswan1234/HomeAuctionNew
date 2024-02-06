@@ -33,6 +33,29 @@
   }
 }
 
+.searchBoxx {
+  background: $col18;
+  border: 1px solid $col15;
+  border-radius: 8px;
+  padding: 8px;
+  width: 360px;
+  max-width: 100%;
+
+  .form-control {
+    box-shadow: none !important;
+    border: 0;
+    color: $col1;
+
+    &::placeholder {
+      opacity: 0.6;
+    }
+  }
+
+  button {
+    background: transparent;
+  }
+}
+
 .dropdownBlock {
   .dropdown {
     button {
@@ -373,6 +396,7 @@
         padding: 10px 24px;
         font-size: 15px;
         text-transform: inherit;
+        letter-spacing: -1px;
 
         mark {
           padding: 0.1rem;
@@ -757,5 +781,18 @@
   table td {
     border: none;
     padding: 0;
+  }
+}
+
+.popular-section {
+  padding: 40px 0;
+
+  .listing-block {
+    ul {
+      li {
+        list-style: none;
+        margin-bottom: 32px;
+      }
+    }
   }
 }

@@ -1,0 +1,35 @@
+@import '../../assets/scss/module/variables.scss';
+
+.footer-section {
+  border-top: 1px solid $col20;
+
+  .footer-top {
+    background: rgba(222, 222, 222, 0.4);
+    padding-top: 40px;
+
+    .footer-list {
+      ul {
+        li {
+          list-style-type: none;
+          font-weight: 500;
+          color: $col19;
+          margin-bottom: 12px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    margin-top: 40px;
+    padding: 16px 0;
+    border-top: 1px solid $col20;
+    align-items: center;
+
+    ul {
+      li {
+        list-style: none;
+      }
+    }
+  }
+}
