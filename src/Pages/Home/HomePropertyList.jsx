@@ -16,9 +16,9 @@ function HomePropertyList() {
         </div>
         <div className="home-slide">
           <Slider>
-            <PropertyCard />
-            <PropertyCard />
-            <PropertyCard />
+            <PropertyCard propertyData={{}} />
+            <PropertyCard propertyData={{}} />
+            <PropertyCard propertyData={{}} />
           </Slider>
         </div>
       </Container>

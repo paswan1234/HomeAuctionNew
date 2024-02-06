@@ -1,7 +1,37 @@
-import { Col, Form, Row } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 import { Button } from '@auction/Components/Buttons'
+import { CheckBoxField, InputField } from '@auction/Components/FormFields'
+import { ENQUIRY_FORM_SCHEMAS } from '@auction/Helpers/validationSchema'
+import mainApiService from '@auction/Services/apiService'
+import { Form, Formik } from 'formik'
+
+const DEFAULT_CREATE_FORM = {
+  fullName: '',
+  phone: '',
+  email: '',
+  description: '',
+  notification: false,
+}
 
 function QuestionDetail() {
+  const handleFormSubmit = async (formValues, { resetForm }) => {
+    const payload = {
+      fullName: formValues.fullName,
+      phone: formValues.phone,
+      email: formValues.email,
+      description: formValues.description,
+      notification: formValues.notification,
+    }
+    try {
+      const result = await mainApiService('enquireProperty', payload)
+      if (result?.status === 200) {
+        resetForm()
+      }
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.log(err)
+    }
+  }
   return (
     <div className="detailRightSec">
       <div className="checkAvailability">
@@ -17,76 +47,67 @@ function QuestionDetail() {
           <div className="rentalForm">
             <Row>
               <Col sm={12}>
-                <Form.Group
-                  className="mb-3 position-relative"
-                  controlId="exampleForm.ControlInput1"
+                <Formik
+                  initialValues={DEFAULT_CREATE_FORM}
+                  validationSchema={ENQUIRY_FORM_SCHEMAS}
+                  onSubmit={handleFormSubmit}
                 >
-                  <i className="fa fa-user" />
-                  <Form.Control
-                    type="text"
-                    placeholder="Full name"
-                    className="textInput"
-                  />
-                </Form.Group>
-                <Form.Group
-                  className="mb-3 position-relative"
-                  controlId="exampleForm.Phone"
-                >
-                  <i className="fa fa-phone" />
-                  <Form.Control
-                    type="text"
-                    placeholder="Phone"
-                    className="textInput"
-                  />
-                </Form.Group>
-                <Form.Group
-                  className="mb-3 position-relative"
-                  controlId="exampleForm.Email"
-                >
-                  <i className="fa fa-envelope" />
-                  <Form.Control
-                    type="email"
-                    placeholder="Email"
-                    className="textInput"
-                  />
-                </Form.Group>
-                <Form.Group
-                  className="mb-3 position-relative"
-                  controlId="exampleForm.Msg"
-                >
-                  <Form.Control
-                    as="textarea"
-                    rows="3"
-                    placeholder="Hi, I’d like to be connected with a local real estate expert about S Kimbark Ave on AuctionDeals.com"
-                    className="textInput"
-                  />
-                </Form.Group>
-                <Form.Group className="mb-4 position-relative">
-                  <Form.Check
-                    type="checkbox"
-                    aria-label="option 1"
-                    name="option 1"
-                    label="I’d like to periodically receive information about foreclosure properties"
-                  />
-                </Form.Group>
-                <div className="d-flex align-items-center flex-wrap p-0 mb-4">
-                  <Button
-                    text="Get Connected"
-                    className="longBtn greenBtnLongBtn d-block w-100"
-                  />
-                </div>
-                <div className="termsCond">
-                  <p className="mb-0 fs-16 fw400 text-col1">
-                    By clicking the button, you agree to our{' '}
-                    <span className="text-col2 text-none cursor-pointer">
-                      Terms of Use
-                    </span>{' '}
-                    and{' '}
-                    <span className="text-col2 text-none cursor-pointer">
-                      Privacy Policy
-                    </span>
-                  </p>
-                </div>
+                  {() => {
+                    return (
+                      <Form>
+                        <InputField
+                          type="text"
+                          name="fullName"
+                          className="fa fa-user"
+                          label="Full name"
+                          placeholder="Full name"
+                        />
+                        <InputField
+                          type="number"
+                          name="phone"
+                          className="fa fa-phone"
+                          placeholder="Phone"
+                        />
+                        <InputField
+                          type="email"
+                          name="email"
+                          className="fa fa-envelope"
+                          placeholder="Email"
+                        />
+                        <InputField
+                          as="textarea"
+                          rows="3"
+                          name="description"
+                          placeholder="Hi, I’d like to be connected with a local real estate expert about S Kimbark Ave on AuctionDeals.com"
+                        />
+                        <CheckBoxField
+                          id="option-1"
+                          name="notification"
+                          label="I’d like to periodically receive information about foreclosure properties"
+                        />
+                        <div className="d-flex align-items-center flex-wrap p-0 mb-4">
+                          <Button
+                            text="Get Connected"
+                            type="submit"
+                            className="longBtn greenBtnLongBtn d-block w-100"
+                          />
+                        </div>
+                        <div className="termsCond">
+                          <p className="mb-0 fs-16 fw400 text-col1">
+                            By clicking the button, you agree to our{' '}
+                            <span className="text-col2 text-none cursor-pointer">
+                              Terms of Use
+                            </span>{' '}
+                            and{' '}
+                            <span className="text-col2 text-none cursor-pointer">
+                              Privacy Policy
+                            </span>
+                          </p>
+                        </div>
+                      </Form>
+                    )
+                  }}
+                </Formik>
               </Col>
             </Row>
           </div>

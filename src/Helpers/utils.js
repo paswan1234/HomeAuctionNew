@@ -1,5 +1,17 @@
 import { getLocalStorage } from '@auction/Helpers/browserStorageOperations'
 
+const ALLOWED_KEYS = [
+  'Backspace',
+  'Delete',
+  'ArrowLeft',
+  'ArrowRight',
+  'Home',
+  'End',
+  'Enter',
+  'Tab',
+]
+const REGEX_ONLY_NUMBERS = /^[0-9\b]+$/
+
 export const isUserAuthenticated = () => {
   const getToken = getLocalStorage('authData')?.token
   return !!getToken
@@ -42,4 +54,15 @@ export const getParseQueryData = (location) => {
     {}
   )
   return queryObject
+}
+
+export const capitalizeFirstLetter = (str) => {
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+}
+
+export const handleKeyDownOnlyNumbers = (event) => {
+  if (REGEX_ONLY_NUMBERS.test(event.key) || ALLOWED_KEYS.includes(event.key)) {
+    return
+  }
+  event.preventDefault()
 }

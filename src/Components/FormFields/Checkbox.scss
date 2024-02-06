@@ -1,0 +1,113 @@
+@import '../../assets/scss/module/variables.scss';
+
+// type radio scss
+.radioWrap {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+
+  label {
+    font-size: 15px;
+    font-weight: 500;
+    color: $col5;
+    padding-left: 10px;
+    margin-top: -2px;
+  }
+}
+
+input[type='radio'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  min-width: 20px;
+  outline: none;
+  margin: 0;
+  cursor: pointer;
+  border: 2px solid $col4;
+  background: transparent;
+  border-radius: 50%;
+  display: grid;
+  justify-self: end;
+  justify-items: center;
+  align-items: center;
+  overflow: hidden;
+  transition: border 0.5s ease;
+
+  @media (max-width: 767px) {
+    height: 16px;
+    width: 16px;
+    min-width: 16px;
+    top: 1px;
+  }
+
+  &::before {
+    content: '';
+    display: flex;
+    justify-self: center;
+    border-radius: 50%;
+  }
+
+  &::before {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: $col4;
+    z-index: 1;
+    opacity: 1;
+
+    @media (max-width: 767px) {
+      height: 8px;
+      width: 8px;
+    }
+  }
+
+  &:checked {
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &:not(:checked) {
+    &::before {
+      opacity: 0;
+    }
+  }
+}
+
+// type checkbox scss
+
+.checkboxWrap {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+
+  label {
+    font-size: 16px;
+    font-weight: 500;
+    color: $col5;
+    padding-left: 8px;
+    margin-top: -1px;
+  }
+
+  &.form-check {
+    .form-check-input {
+      border-color: $col2;
+      border-radius: 0px;
+      position: relative;
+      top: 0px;
+      cursor: pointer;
+    }
+
+    .form-check-input:checked {
+      background-color: $col4;
+      border-color: $col4;
+    }
+
+    .form-check-input:focus {
+      box-shadow: none;
+    }
+  }
+}

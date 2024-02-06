@@ -1,6 +1,7 @@
 import { forwardRef, useState } from 'react'
 
 import { AsyncTypeahead } from 'react-bootstrap-typeahead'
+import { capitalizeFirstLetter } from '@auction/Helpers'
 import mainApiService from '@auction/Services/apiService'
 
 function SearchPropertyField({ handleChange, onClear }, ref) {
@@ -27,7 +28,9 @@ function SearchPropertyField({ handleChange, onClear }, ref) {
       onChange={handleChange}
       options={searchData}
       labelKey={(option) =>
-        `${option?.property_city},${option?.property_state}`
+        `${capitalizeFirstLetter(option?.property_city)}, ${
+          option?.property_state
+        }`
       }
       placeholder="Enter City or State"
       onSearch={(query) => handleSearch(query)}

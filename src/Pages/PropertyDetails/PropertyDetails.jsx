@@ -93,7 +93,7 @@ export default function PropertyDetails() {
                     </div>
                   </div>
                 </Col>
-                <Col md={4} lg={4} xl={3} class="ms-auto text-end">
+                <Col md={4} lg={4} xl={3} className="ms-auto text-end">
                   <div className="d-flex flex-wrap mt-3 mt-md-0 align-items-bottom text-nowrap">
                     <h3 className="fs-32 fw700 mb-0 me-2">$112,000</h3>
                     <div className="d-flex align-items-center position-relative min-width70">

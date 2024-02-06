@@ -1,0 +1,634 @@
+@import '../../assets/scss/module/variables.scss';
+
+.inputFeild {
+  .form-control,
+  .form-select {
+    border-radius: 10px;
+    background: $col6;
+    padding: 0.675rem 1.125rem;
+    height: 56px;
+    font-size: 16px;
+    font-weight: 500;
+    color: $col1 !important;
+    outline: 0;
+    box-shadow: 0px 8.26594px 49.5956px 1.65319px rgba(0, 0, 0, 0.1);
+    border-color: $col22;
+
+    &:hover,
+    &:focus {
+      box-shadow: none !important;
+    }
+
+    &:focus {
+      border-color: $col22;
+      box-shadow: inherit;
+    }
+  }
+
+  // select {
+  //   background-image: url('../../assets/icon/arrow-down.svg');
+  // }
+  textarea {
+    &.form-control {
+      min-height: 150px;
+      border-color: $col22 !important;
+      color: $col1 !important;
+    }
+  }
+}
+
+.form-floating > .form-control:focus,
+.form-floating > .form-control:not(:placeholder-shown) {
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+}
+
+.form-floating {
+  label {
+    color: $col5;
+    // padding: 0 !important;
+    // height: auto !important;
+    // width: auto !important;
+    // background-color: $col6;
+    // top: 50% !important;
+    // transform: translate(15px, -50%);
+    // padding-left: 1rem;
+  }
+
+  input[type='password'] {
+    padding-right: 50px;
+  }
+
+  & > .form-control,
+  & > .form-select {
+    height: 50px;
+    border-radius: 10px;
+    background: $col6;
+    padding: 0.675rem 1.125rem;
+    height: 56px;
+    font-size: 16px;
+    font-weight: 500;
+    color: $col1 !important;
+    outline: 0;
+    box-shadow: 0px 8.26594px 49.5956px 1.65319px rgba(0, 0, 0, 0.1);
+    border-color: $col22;
+    min-height: auto !important;
+    padding-left: 1rem !important;
+
+    &:focus {
+      border-color: $col22;
+      box-shadow: inherit;
+    }
+
+    &:disabled {
+      box-shadow: none;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+
+  & > .form-select {
+    background-image: url(../../assets/images/svg/downArrow1.svg) !important;
+    background-size: 12px 12px !important;
+    background-position: right 0.8rem center !important;
+    padding-top: 0.625rem !important;
+    padding-right: 32px !important;
+    background-repeat: no-repeat;
+    word-wrap: break-word;
+    background-color: $col6;
+
+    &.form-select-sm,
+    &.form-select-sm.form-control:not(:placeholder-shown) {
+      padding: 6px 2rem 6px 1rem !important;
+      height: 40px;
+      font-size: 1rem;
+    }
+
+    &.form-select-sort,
+    &.form-select-sort.form-control:not(:placeholder-shown) {
+      background-image: url(../../assets/images/svg/caret-light-down.svg) !important;
+      border-radius: 4.29351px;
+      font-weight: 500;
+      font-size: 11.4494px;
+      // text-transform: capitalize;
+      padding: 3px 2rem 3px 1rem !important;
+      height: 30px;
+      color: $col2;
+    }
+  }
+
+  & > textarea.form-control {
+    font-size: 16px;
+    height: 179px;
+    // resize: none;
+    overflow: auto;
+
+    &:focus {
+      border-color: $col1;
+      box-shadow: inherit;
+    }
+  }
+
+  .pass {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50% !important;
+    right: 0;
+    cursor: pointer;
+  }
+}
+
+.form-floating > .form-control-plaintext ~ label,
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
+  opacity: 0.65;
+  transform: scale(0.85) translateY(-0.1rem) translateX(1rem) !important;
+}
+
+.input[type='password'] {
+  padding-right: 2rem !important;
+}
+
+.form-floating > .form-control-plaintext:focus,
+.form-floating > .form-control-plaintext:not(:placeholder-shown),
+.form-floating > .form-control:focus,
+.form-floating > .form-control:not(:placeholder-shown) {
+  padding-top: 1.4rem !important;
+}
+
+.otp-input-fields {
+  .form-floating > .form-control {
+    padding-top: 0.75rem !important;
+    padding-left: 5px !important;
+  }
+}
+
+.country-field-code {
+  .form-floating > .form-control {
+    padding-top: 0.75rem !important;
+    padding-left: 5px !important;
+  }
+}
+
+.form-floating {
+  & > .form-control:focus ~ label,
+  & > .form-control:not(:placeholder-shown) ~ label,
+  & > .form-select ~ label {
+    opacity: 1 !important;
+    transform: scale(0.85) translate(25px, 0);
+    top: 3px !important;
+    background-color: transparent;
+    color: $col5;
+    padding: 5px;
+    padding-left: 3px;
+
+    &::after {
+      background-color: transparent !important;
+    }
+  }
+
+  & > textarea.form-control ~ label {
+    top: 0 !important;
+  }
+
+  & > textarea.form-control:focus ~ label {
+    opacity: 1 !important;
+    transform: scale(0.85) translate(25px, 0) !important;
+    top: -10px;
+    background-color: $col6;
+    color: $col5;
+  }
+}
+
+.location-h {
+  .form-floating {
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 27px;
+      background-color: $col6;
+      z-index: 9;
+      top: 0;
+      left: 1px;
+      border-top: solid 1px $col22;
+      border-radius: 10px 0px 0px;
+      width: calc(100% - 17px);
+    }
+
+    & > textarea.form-control ~ label {
+      // top: -1px !important;
+    }
+  }
+}
+
+.Textarea {
+  &.form-control {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: $col5;
+    border: 0;
+    border-bottom: 2px solid rgba(112, 112, 112, 0.18);
+    border-radius: 0;
+    background-color: transparent;
+    background: transparent;
+    box-shadow: inherit;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.word-limit {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  bottom: -28px;
+  padding: 5px 15px;
+  text-align: right;
+  border-radius: 8px;
+  margin: 1px;
+}
+
+.form-text {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px !important;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  color: #088724 !important;
+  margin-top: 0 !important;
+}
+
+.thread-selects {
+  .form-floating {
+    .form-select {
+      &.form-select-sort {
+        min-width: 137px;
+      }
+    }
+  }
+}
+
+.form-floating {
+  select {
+    &.form-select {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+span {
+  &.hover-link {
+    &:hover {
+      color: $col13 !important;
+    }
+  }
+}
+
+.form-select {
+  // text-transform: capitalize;
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.form-control:-webkit-autofill,
+.form-control:-webkit-autofill:hover,
+.form-control:-webkit-autofill:focus,
+.form-control:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: $col1 !important;
+  font-size: 16px !important;
+}
+
+// select {
+//   &::first-letter {
+//     text-transform: capitalize !important;
+//   }
+//   option::first-letter {
+//     text-transform: capitalize !important;
+//   }
+// }
+.search-users {
+  .form-control {
+    font-size: 16px;
+    font-weight: 500;
+    color: $col1 !important;
+    box-shadow: none !important;
+    height: 40px;
+    border: solid 1px $col22 !important;
+    border-radius: 10px;
+
+    &::placeholder {
+      color: $col1 !important;
+      opacity: 1;
+    }
+  }
+}
+
+.form-floating {
+  & > .form-select {
+    &.font-light {
+      font-weight: 500 !important;
+      color: $col1 !important;
+    }
+  }
+}
+
+input[type='radio'] {
+  &::before {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.inbox-tabcontent {
+  .quick-reply {
+    .css-13cymwt-control,
+    .css-t3ipsp-control {
+      border-radius: 10px;
+      background: $col6;
+      padding: 0rem 0.75rem;
+      height: 56px;
+      font-size: 16px;
+      font-weight: 500;
+      color: $col1 !important;
+      outline: 0;
+      box-shadow: 0px 8.26594px 49.5956px 1.65319px rgb(0 0 0 / 10%);
+      border-color: $col22;
+    }
+
+    .css-1jqq78o-placeholder {
+      font-weight: 400;
+      color: $col2;
+    }
+  }
+}
+
+.rbt {
+  input {
+    &.form-control {
+      &:hover,
+      &:focus {
+        border: solid 1px $col22;
+      }
+    }
+  }
+}
+
+.form-floating {
+  & > textarea.form-control:focus ~ label {
+    transform: scale(0.85) translate(15px, 0) !important;
+    height: auto;
+    background-color: $col6;
+  }
+
+  & > textarea.form-control:not(:placeholder-shown) ~ label {
+    background-color: $col6 !important;
+    max-height: 25px;
+    padding-top: 2px;
+  }
+
+  textarea {
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      display: block;
+    }
+
+    &.form-control {
+      &:hover {
+        box-shadow: 0px 8.26594px 49.5956px 1.65319px rgb(0 0 0 / 10%);
+      }
+
+      &:focus {
+        border-color: $col22;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+textarea {
+  &.form-control {
+    &:hover {
+      box-shadow: 0px 8.26594px 49.5956px 1.65319px rgb(0 0 0 / 10%);
+    }
+
+    &:focus {
+      border-color: $col22;
+      box-shadow: none;
+    }
+  }
+}
+
+.input-places {
+  .form-floating {
+    & > .form-control {
+      &::placeholder {
+        color: $col2 !important;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+.form-floating {
+  .form-select {
+    &:disabled {
+      background-color: $col6;
+    }
+  }
+}
+
+.select-user {
+  .css-art2ul-ValueContainer2 {
+    padding-left: 3px;
+
+    .css-1jqq78o-placeholder {
+      padding-left: 0;
+    }
+
+    .css-w9q2zk-Input2 {
+      padding-left: 0;
+    }
+  }
+}
+
+.h-auto {
+  .mh-auto {
+    min-height: 62px;
+    max-height: 62px;
+  }
+}
+
+input[type='password']::-ms-reveal,
+input[type='password']::-ms-clear {
+  display: none;
+}
+
+body {
+  .form-floating {
+    & > label {
+      padding-left: 1rem;
+    }
+  }
+}
+
+.form-floating > .form-control:disabled ~ label,
+.form-floating > :disabled ~ label {
+  opacity: 0.5 !important;
+}
+
+.form-floating {
+  &.textarea-white-bg {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 27px;
+      background-color: $col6;
+      z-index: 9;
+      top: 0;
+      left: 1px;
+      border-top: solid 1px $col22;
+      border-radius: 10px 0px 0px;
+      width: calc(100% - 17px);
+    }
+  }
+
+  textarea {
+    & + label {
+      z-index: 10;
+
+      &::before {
+        display: none;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 30px;
+        background-color: $col4;
+        z-index: 999;
+      }
+    }
+  }
+}
+
+.select-counts {
+  .form-control {
+    border-radius: 4px;
+    border: 1px solid $col22;
+    background: $col6;
+    height: 40px;
+    width: 65px;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &:hover,
+    &:focus {
+      box-shadow: none;
+      border: 1px solid $col22;
+    }
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: auto;
+    -moz-appearance: auto;
+    appearance: auto;
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+}
+
+.checkboxWrap {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+
+  label {
+    font-size: 16px;
+    font-weight: 500;
+    color: $col5;
+    padding-left: 5px;
+    margin-top: -1px;
+  }
+
+  &.form-check {
+    .form-check-input {
+      border-color: $col2;
+      border-radius: 0px;
+      position: relative;
+      top: 0px;
+      cursor: pointer;
+    }
+
+    .form-check-input:checked {
+      background-color: $col4;
+      border-color: $col4;
+    }
+
+    .form-check-input:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+.multi-input-custom {
+  .select-user {
+    border: none !important;
+
+    & > span {
+      & + div {
+        border: solid 1px $col22 !important;
+        box-shadow: none !important;
+        min-height: 58px;
+        padding-left: 14px;
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+.form-floating {
+  textarea {
+    &.h-120 {
+      height: 120px;
+    }
+  }
+}
