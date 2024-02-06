@@ -73,6 +73,7 @@ module.exports = {
           'Button',
           'Menu',
           'Form.Select',
+          'Form.Check',
         ],
       },
     ],

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { Col, Container, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
@@ -22,21 +22,28 @@ function PropertyListingpage() {
   const { errorDispatch } = useCustomToast()
 
   const [propertyList, setPropertyList] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [totalPageCount, setTotalPageCount] = useState(0)
   const [forcePage, setForcePage] = useState(0)
   const [pageNo, setPageNo] = useState(1)
+  const [selectedListName, setSelectedListName] = useState([])
+  const [selectedPropertyName, setSelectedPropertyName] = useState([])
+  const [maxBaths, setMaxBaths] = useState(0)
+  const [maxBeds, setMaxBeds] = useState(0)
 
-  useEffect(() => {
-    const payload = {
-      city,
-      state,
-      zip,
-      PageNumber: pageNo,
-      PageSize: 9,
-    }
-    ;(async () => {
-      setIsLoading(true)
+  const getPropertyList = useCallback(
+    async (listType = [], propertyType = [], baths = 0, beds = 0) => {
+      const payload = {
+        city,
+        state,
+        zip,
+        PageNumber: pageNo,
+        PageSize: 9,
+        PropertyType: propertyType.join(','),
+        PropertySubType: listType.join(','),
+        MaxBath: baths || '',
+        MaxBed: beds || '',
+      }
       try {
         const result = await mainApiService('getPropertyList', payload)
         if (result?.status === 200) {
@@ -48,8 +55,14 @@ function PropertyListingpage() {
         errorDispatch(err)
         setIsLoading(false)
       }
-    })()
-  }, [city, errorDispatch, pageNo, state, zip])
+    },
+    [city, errorDispatch, pageNo, state, zip]
+  )
+
+  useEffect(() => {
+    getPropertyList(selectedListName, selectedPropertyName, maxBaths, maxBeds)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageNo, getPropertyList])
 
   return (
     <div>
@@ -58,9 +71,18 @@ function PropertyListingpage() {
         <Container fluid>
           <Row>
             <Col lg={4} xl={3}>
-              <FilterSection />
+              <FilterSection
+                selectedListName={selectedListName}
+                selectedPropertyName={selectedPropertyName}
+                maxBaths={maxBaths}
+                maxBeds={maxBeds}
+                setSelectedListName={setSelectedListName}
+                setSelectedPropertyName={setSelectedPropertyName}
+                setMaxBaths={setMaxBaths}
+                setMaxBeds={setMaxBeds}
+                getPropertyList={getPropertyList}
+              />
             </Col>
-
             <Col lg={8} xl={9}>
               {isLoading ? (
                 <LoaderComponent

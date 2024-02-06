@@ -1,3 +1,5 @@
+import { useCallback } from 'react'
+
 import { Col, Row } from 'react-bootstrap'
 import { Button } from '@auction/Components/Buttons'
 import { CheckBoxField, InputField } from '@auction/Components/FormFields'
@@ -17,24 +19,28 @@ const DEFAULT_CREATE_FORM = {
 function QuestionDetail() {
   const { successDispatch, errorDispatch } = useCustomToast()
 
-  const handleFormSubmit = async (formValues, { resetForm }) => {
-    const payload = {
-      fullName: formValues.fullName,
-      phone: formValues.phone,
-      email: formValues.email,
-      description: formValues.description,
-      notification: formValues.notification,
-    }
-    try {
-      const result = await mainApiService('enquireProperty', payload)
-      if (result?.status === 200) {
-        resetForm()
-        successDispatch('Successfully submitted')
+  const handleFormSubmit = useCallback(
+    async (formValues, { resetForm }) => {
+      const payload = {
+        fullName: formValues.fullName,
+        phone: formValues.phone,
+        email: formValues.email,
+        description: formValues.description,
+        notification: formValues.notification,
       }
-    } catch (err) {
-      errorDispatch(err)
-    }
-  }
+      try {
+        const result = await mainApiService('enquireProperty', payload)
+        if (result?.status === 200) {
+          resetForm()
+          successDispatch('Successfully submitted')
+        }
+      } catch (err) {
+        errorDispatch(err)
+      }
+    },
+    [errorDispatch, successDispatch]
+  )
+
   return (
     <div className="detailRightSec">
       <div className="checkAvailability">
