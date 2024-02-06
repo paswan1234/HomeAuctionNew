@@ -6,6 +6,7 @@ import LoaderComponent from '@auction/Components/Loader/LoaderComponent'
 import Pagination from '@auction/Components/Pagination'
 import PropertyCard from '@auction/Components/PropertyCard'
 import { capitalizeFirstLetter } from '@auction/Helpers'
+import useCustomToast from '@auction/Hooks/useCustomToast'
 import Footer from '@auction/Layout/Footer'
 import TopHeader from '@auction/Layout/Header'
 import mainApiService from '@auction/Services/apiService'
@@ -18,6 +19,7 @@ function PropertyListingpage() {
     property_state: state,
     property_zip: zip,
   } = useParams()
+  const { errorDispatch } = useCustomToast()
 
   const [propertyList, setPropertyList] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -43,12 +45,11 @@ function PropertyListingpage() {
           setIsLoading(false)
         }
       } catch (err) {
-        // eslint-disable-next-line no-console
-        console.log(err)
+        errorDispatch(err)
         setIsLoading(false)
       }
     })()
-  }, [city, pageNo, state, zip])
+  }, [city, errorDispatch, pageNo, state, zip])
 
   return (
     <div>
