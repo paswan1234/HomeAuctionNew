@@ -20,31 +20,32 @@ export default function PropertyCard({ propertyData }) {
         <div className="sliderTagName text-col1 fw400">New</div>
         <div className="sliderTextArea">
           <div className="d-flex align-items-center">
-            <h5 className="text-col1 fs-24 fw700 mb-0">$559,000</h5>
+            <h5 className="text-col1 fs-24 fw700 mb-0">
+              ${propertyData.RentValue}
+            </h5>
             <div className="ms-auto statusblock">
               <div className="d-flex align-items-center">
                 <div className="dot orange" />
-                <p className="mb-0 ftSze14 ftWgt500">AUCTION</p>
+                <p className="mb-0 ftSze14 ftWgt500">{propertyData.saletype}</p>
               </div>
             </div>
           </div>
           <div className="d-flex align-items-top">
             <div>
-              <h4 className="fw500 fs-18 mb-0">
-                205 Beechwood Ave, Staten Island, NY 10301
-              </h4>
+              <h4 className="fw500 fs-18 mb-0">{propertyData.Address}</h4>
             </div>
           </div>
           <div className="sliderListing">
             <ul className="clearfix d-flex align-items-center">
               <li>
-                <b className="text-col1">3</b>beds
+                <b className="text-col1">{propertyData.BedroomsTotal || 1}</b>
+                beds
               </li>
               <li>
-                <b className="text-col1">1.5</b>baths
+                <b className="text-col1">{propertyData.BathsFull}</b>baths
               </li>
               <li>
-                <b className="text-col1">3,193</b>sq.ft
+                <b className="text-col1">{propertyData.LivingArea}</b>sq.ft
               </li>
             </ul>
           </div>

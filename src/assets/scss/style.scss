@@ -134,3 +134,21 @@ body {
   background-color: $col3;
   display: block;
 }
+
+.new-class {
+  margin-top: 250px;
+}
+
+.error {
+  color: $col21;
+  font-weight: 500;
+  font-size: 15px;
+  padding-left: 0.1rem;
+  display: block;
+  margin-top: 3px;
+  margin-bottom: 5px;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
+}

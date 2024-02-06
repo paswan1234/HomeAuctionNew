@@ -1,0 +1,47 @@
+@import '../../assets/scss/module/variables.scss';
+
+.overlay-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.46);
+  overflow: hidden;
+  z-index: 999;
+
+  .loader-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.loader {
+  position: relative;
+  z-index: 999;
+
+  .loader-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.wall_loder {
+  min-height: 325px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wall-detail-profile-loader {
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
