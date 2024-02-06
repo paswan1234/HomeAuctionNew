@@ -8,6 +8,7 @@
     "assets/**",
     "Services/**",
     "Helpers/*",
-    "Hooks/*"
+    "Hooks/*",
+    "Store/*"
   ]
 }

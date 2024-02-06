@@ -2,6 +2,7 @@ import { Col, Row } from 'react-bootstrap'
 import { Button } from '@auction/Components/Buttons'
 import { CheckBoxField, InputField } from '@auction/Components/FormFields'
 import { ENQUIRY_FORM_SCHEMAS } from '@auction/Helpers/validationSchema'
+import useCustomToast from '@auction/Hooks/useCustomToast'
 import mainApiService from '@auction/Services/apiService'
 import { Form, Formik } from 'formik'
 
@@ -14,6 +15,8 @@ const DEFAULT_CREATE_FORM = {
 }
 
 function QuestionDetail() {
+  const { successDispatch, errorDispatch } = useCustomToast()
+
   const handleFormSubmit = async (formValues, { resetForm }) => {
     const payload = {
       fullName: formValues.fullName,
@@ -26,10 +29,10 @@ function QuestionDetail() {
       const result = await mainApiService('enquireProperty', payload)
       if (result?.status === 200) {
         resetForm()
+        successDispatch('Successfully submitted')
       }
     } catch (err) {
-      // eslint-disable-next-line no-console
-      console.log(err)
+      errorDispatch(err)
     }
   }
   return (
