@@ -2,6 +2,7 @@ import { Col, Container, Row, Table } from 'react-bootstrap'
 import Breadcrumb from '@auction/Components/Breadcrumb'
 import Button from '@auction/Components/Buttons/Button'
 import Image from '@auction/Components/Image'
+import Footer from '@auction/Layout/Footer'
 import Header from '@auction/Layout/Header'
 
 import ProductSlider from './ProductSlider'
@@ -339,6 +340,7 @@ export default function PropertyDetails() {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </>
   )
 }

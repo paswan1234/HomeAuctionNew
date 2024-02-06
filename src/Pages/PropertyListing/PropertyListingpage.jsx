@@ -4,6 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import Pagination from '@auction/Components/Pagination'
 import PropertyCard from '@auction/Components/PropertyCard'
+import Footer from '@auction/Layout/Footer'
 import TopHeader from '@auction/Layout/Header'
 import mainApiService from '@auction/Services/apiService'
 
@@ -69,6 +70,7 @@ function PropertyListingpage() {
           </Row>
         </Container>
       </section>
+      <Footer />
     </div>
   )
 }
