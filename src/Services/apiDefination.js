@@ -5,7 +5,7 @@ const ApiDefination = {
     data: {},
   },
   getPropertyList: {
-    url: '/property-search?city=:city&state=:state&zip=:zip&PageNumber=:PageNumber&PageSize=:PageSize',
+    url: '/property-search?city=:city&state=:state&zip=:zip&PageNumber=:PageNumber&PageSize=:PageSize&PropertyType=:PropertyType&PropertySubType=:PropertySubType&MaxBed=:MaxBed&MaxBath=:MaxBath',
     method: 'GET',
     data: {},
   },

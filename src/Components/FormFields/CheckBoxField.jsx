@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import { Form } from 'react-bootstrap'
 import { useField } from 'formik'
 
