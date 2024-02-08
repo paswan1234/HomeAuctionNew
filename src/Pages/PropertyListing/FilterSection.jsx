@@ -1,6 +1,6 @@
 import Accordion from 'react-bootstrap/Accordion'
-import Dropdown from 'react-bootstrap/Dropdown'
 import { Button } from '@auction/Components/Buttons'
+import DropdownList from '@auction/Components/Dropdown/DropdownList'
 import { CheckBoxComponent } from '@auction/Components/FormFields'
 import { CONSTANT } from '@auction/Helpers'
 
@@ -9,11 +9,16 @@ function FilterSection({
   selectedPropertyName,
   maxBaths,
   maxBeds,
+  minArea,
+  maxArea,
   setSelectedListName,
   setSelectedPropertyName,
   setMaxBaths,
   setMaxBeds,
+  setMinArea,
+  setMaxArea,
   getPropertyList,
+  handleResetFilter,
 }) {
   return (
     <>
@@ -162,43 +167,40 @@ function FilterSection({
                 500 SqFt
               </h3>
               <div className="w-100 d-flex align-items-center dropdown-filters">
-                <Dropdown>
-                  <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                    500 SqFt
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu>
-                    <Dropdown.Item>600 SqFt</Dropdown.Item>
-                    <Dropdown.Item>750 SqFt</Dropdown.Item>
-                    <Dropdown.Item>1000 SqFt</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
+                <DropdownList
+                  title={`${minArea} SqFt` || '500 SqFt'}
+                  filterName={CONSTANT.PROPERTY_AREA}
+                  handleFilter={(value) => {
+                    setMinArea(value)
+                  }}
+                />
                 <span className="border-center-width mx-1" />
-                <Dropdown>
-                  <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                    2100 SqFt
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu>
-                    <Dropdown.Item>600 SqFt</Dropdown.Item>
-                    <Dropdown.Item>750 SqFt</Dropdown.Item>
-                    <Dropdown.Item>1000 SqFt</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
+                <DropdownList
+                  title={`${maxArea} SqFt` || '2100 SqFt'}
+                  filterName={CONSTANT.PROPERTY_AREA}
+                  handleFilter={(value) => {
+                    setMaxArea(value)
+                  }}
+                />
               </div>
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
       </div>
-      <Button
-        onClick={() => {
-          getPropertyList(
-            selectedListName,
-            selectedPropertyName,
-            maxBaths,
-            maxBeds
-          )
-        }}
-        text="Submit"
-      />
+      <div className="d-flex gap-5 mt-2">
+        <Button onClick={handleResetFilter} text="Reset" />
+        <Button
+          onClick={() => {
+            getPropertyList(
+              selectedListName,
+              selectedPropertyName,
+              maxBaths,
+              maxBeds
+            )
+          }}
+          text="Apply filter"
+        />
+      </div>
     </>
   )
 }

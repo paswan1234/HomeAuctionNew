@@ -30,6 +30,9 @@ function PropertyListingpage() {
   const [selectedPropertyName, setSelectedPropertyName] = useState([])
   const [maxBaths, setMaxBaths] = useState(0)
   const [maxBeds, setMaxBeds] = useState(0)
+  const [minArea, setMinArea] = useState('')
+  const [maxArea, setMaxArea] = useState('')
+  const [update, setUpdate] = useState(0)
 
   const getPropertyList = useCallback(
     async (listType = [], propertyType = [], baths = 0, beds = 0) => {
@@ -43,26 +46,41 @@ function PropertyListingpage() {
         PropertySubType: listType.join(','),
         MaxBath: baths || '',
         MaxBed: beds || '',
+        update,
       }
       try {
         const result = await mainApiService('getPropertyList', payload)
-        if (result?.status === 200) {
+        if (result?.data?.Data?.Records?.length) {
           setPropertyList(result.data.Data.Records)
           setTotalPageCount(result.data.Data.RecordCount)
           setIsLoading(false)
+        } else {
+          setPropertyList([])
+          setTotalPageCount(0)
         }
       } catch (err) {
         errorDispatch(err)
         setIsLoading(false)
       }
     },
-    [city, errorDispatch, pageNo, state, zip]
+    [city, errorDispatch, pageNo, state, zip, update]
   )
 
   useEffect(() => {
     getPropertyList(selectedListName, selectedPropertyName, maxBaths, maxBeds)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNo, getPropertyList])
+
+  const handleResetFilter = () => {
+    setSelectedListName([])
+    setSelectedPropertyName([])
+    setMaxBaths(0)
+    setMaxBeds(0)
+    setMinArea(500)
+    setMaxArea(2100)
+    setPageNo(1)
+    setUpdate((prev) => prev + 1)
+  }
 
   return (
     <div>
@@ -76,10 +94,15 @@ function PropertyListingpage() {
                 selectedPropertyName={selectedPropertyName}
                 maxBaths={maxBaths}
                 maxBeds={maxBeds}
+                minArea={minArea}
+                maxArea={maxArea}
                 setSelectedListName={setSelectedListName}
                 setSelectedPropertyName={setSelectedPropertyName}
                 setMaxBaths={setMaxBaths}
                 setMaxBeds={setMaxBeds}
+                setMinArea={setMinArea}
+                setMaxArea={setMaxArea}
+                handleResetFilter={handleResetFilter}
                 getPropertyList={getPropertyList}
               />
             </Col>
@@ -108,14 +131,16 @@ function PropertyListingpage() {
                       </Col>
                     ))}
                   </Row>
-                  <Pagination
-                    totalPageCount={Math.ceil(totalPageCount / 9)}
-                    forcePage={forcePage}
-                    handlePageClick={(event) => {
-                      setPageNo(event.selected + 1)
-                      setForcePage(event.selected)
-                    }}
-                  />
+                  {totalPageCount > 9 && (
+                    <Pagination
+                      totalPageCount={Math.ceil(totalPageCount / 9)}
+                      forcePage={forcePage}
+                      handlePageClick={(event) => {
+                        setPageNo(event.selected + 1)
+                        setForcePage(event.selected)
+                      }}
+                    />
+                  )}
                 </>
               )}
             </Col>

@@ -46,10 +46,29 @@ const PROPERTY_TYPES = [
   },
 ]
 
+const PROPERTY_AREA = [
+  {
+    id: randomString(),
+    name: '600 SqFt',
+    value: '600',
+  },
+  {
+    id: randomString(),
+    name: '750 SqFt',
+    value: '750',
+  },
+  {
+    id: randomString(),
+    name: '1000 SqFt',
+    value: '1000',
+  },
+]
+
 export default {
   BASE_URL,
   VITE_EDITOR_URL,
   REQUEST_STATUS,
   LISTING_TYPES,
   PROPERTY_TYPES,
+  PROPERTY_AREA,
 }
