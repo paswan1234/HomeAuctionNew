@@ -2,24 +2,29 @@ import Accordion from 'react-bootstrap/Accordion'
 import { Button } from '@auction/Components/Buttons'
 import DropdownList from '@auction/Components/Dropdown/DropdownList'
 import { CheckBoxComponent } from '@auction/Components/FormFields'
+import RadioBoxComponent from '@auction/Components/FormFields/RadioBoxComponent'
 import { CONSTANT } from '@auction/Helpers'
 
 function FilterSection({
   selectedListName,
   selectedPropertyName,
+  propertyNamed,
   maxBaths,
   maxBeds,
   minArea,
   maxArea,
+  setPropertyName,
   setSelectedListName,
   setSelectedPropertyName,
   setMaxBaths,
   setMaxBeds,
   setMinArea,
   setMaxArea,
-  getPropertyList,
+  setUpdate,
   handleResetFilter,
 }) {
+  const isResidential = propertyNamed === 'Residential'
+
   return (
     <>
       <div className="filterWhiteBox">
@@ -38,20 +43,22 @@ function FilterSection({
                     label={item.name}
                     inputProps={{
                       checked: selectedListName?.some(
-                        (tags) => tags === item.name
+                        (tags) => tags === item.value
                       ),
                       onChange: () => {
                         const foundId = selectedListName?.some(
-                          (listName) => listName === item.name
+                          (listName) => listName === item.value
                         )
                         if (foundId) {
                           setSelectedListName((prevIds) =>
-                            prevIds.filter((listName) => listName !== item.name)
+                            prevIds.filter(
+                              (listName) => listName !== item.value
+                            )
                           )
                         } else {
                           setSelectedListName((prevId) => [
                             ...prevId,
-                            item.name,
+                            item.value,
                           ])
                         }
                       },
@@ -64,36 +71,52 @@ function FilterSection({
           <Accordion.Item eventKey="1">
             <Accordion.Header>Property Types</Accordion.Header>
             <Accordion.Body className="px-0 pb-0">
-              <div className="mb-2">
-                {CONSTANT.PROPERTY_TYPES.map((item) => (
-                  <CheckBoxComponent
-                    key={item.id}
-                    label={item.name}
-                    inputProps={{
-                      checked: selectedPropertyName?.some(
-                        (tags) => tags === item.name
-                      ),
-                      onChange: () => {
-                        const foundId = selectedPropertyName?.some(
-                          (propertyName) => propertyName === item.name
-                        )
-                        if (foundId) {
-                          setSelectedPropertyName((prevIds) =>
-                            prevIds.filter(
-                              (propertyName) => propertyName !== item.name
-                            )
-                          )
-                        } else {
-                          setSelectedPropertyName((prevId) => [
-                            ...prevId,
-                            item.name,
-                          ])
-                        }
-                      },
-                    }}
-                  />
-                ))}
+              <div className="d-flex mb-2 gap-5">
+                <RadioBoxComponent
+                  label="Residential"
+                  value="Residential"
+                  checked={propertyNamed === 'Residential'}
+                  onChange={(e) => setPropertyName(e.target.value)}
+                />
+                <RadioBoxComponent
+                  label="Commercial"
+                  value="Commercial"
+                  checked={propertyNamed === 'Commercial'}
+                  onChange={(e) => setPropertyName(e.target.value)}
+                />
               </div>
+              {isResidential && (
+                <div className="mb-2">
+                  {CONSTANT.PROPERTY_TYPES.map((item) => (
+                    <CheckBoxComponent
+                      key={item.id}
+                      label={item.name}
+                      inputProps={{
+                        checked: selectedPropertyName?.some(
+                          (tags) => tags === item.value
+                        ),
+                        onChange: () => {
+                          const foundId = selectedPropertyName?.some(
+                            (propertyName) => propertyName === item.value
+                          )
+                          if (foundId) {
+                            setSelectedPropertyName((prevIds) =>
+                              prevIds.filter(
+                                (propertyName) => propertyName !== item.value
+                              )
+                            )
+                          } else {
+                            setSelectedPropertyName((prevId) => [
+                              ...prevId,
+                              item.value,
+                            ])
+                          }
+                        },
+                      }}
+                    />
+                  ))}
+                </div>
+              )}
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="2">
@@ -177,7 +200,7 @@ function FilterSection({
                 <span className="border-center-width mx-1" />
                 <DropdownList
                   title={`${maxArea} SqFt` || '2100 SqFt'}
-                  filterName={CONSTANT.PROPERTY_AREA}
+                  filterName={CONSTANT.MAX_PROPERTY_AREA}
                   handleFilter={(value) => {
                     setMaxArea(value)
                   }}
@@ -196,12 +219,7 @@ function FilterSection({
         <Button
           variant="primary"
           onClick={() => {
-            getPropertyList(
-              selectedListName,
-              selectedPropertyName,
-              maxBaths,
-              maxBeds
-            )
+            setUpdate((prev) => prev + 1)
           }}
           text="Apply filter"
         />

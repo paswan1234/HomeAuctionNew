@@ -1,7 +1,6 @@
 @import '../../assets/scss/module/variables.scss';
 
 .inputFeild {
-
   .form-control,
   .form-select {
     border-radius: 10px;
@@ -38,8 +37,8 @@
   }
 }
 
-.form-floating>.form-control:focus,
-.form-floating>.form-control:not(:placeholder-shown) {
+.form-floating > .form-control:focus,
+.form-floating > .form-control:not(:placeholder-shown) {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
 }
@@ -60,8 +59,8 @@
     padding-right: 50px;
   }
 
-  &>.form-control,
-  &>.form-select {
+  & > .form-control,
+  & > .form-select {
     height: 50px;
     border-radius: 10px;
     background: $col6;
@@ -88,7 +87,7 @@
     }
   }
 
-  &>.form-select {
+  & > .form-select {
     background-image: url(../../assets/images/svg/downArrow1.svg) !important;
     background-size: 12px 12px !important;
     background-position: right 0.8rem center !important;
@@ -118,7 +117,7 @@
     }
   }
 
-  &>textarea.form-control {
+  & > textarea.form-control {
     font-size: 16px;
     height: 179px;
     // resize: none;
@@ -139,10 +138,10 @@
   }
 }
 
-.form-floating>.form-control-plaintext~label,
-.form-floating>.form-control:focus~label,
-.form-floating>.form-control:not(:placeholder-shown)~label,
-.form-floating>.form-select~label {
+.form-floating > .form-control-plaintext ~ label,
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
   opacity: 0.65;
   transform: scale(0.85) translateY(-0.1rem) translateX(1rem) !important;
 }
@@ -151,32 +150,31 @@
   padding-right: 2rem !important;
 }
 
-.form-floating>.form-control-plaintext:focus,
-.form-floating>.form-control-plaintext:not(:placeholder-shown),
-.form-floating>.form-control:focus,
-.form-floating>.form-control:not(:placeholder-shown) {
+.form-floating > .form-control-plaintext:focus,
+.form-floating > .form-control-plaintext:not(:placeholder-shown),
+.form-floating > .form-control:focus,
+.form-floating > .form-control:not(:placeholder-shown) {
   padding-top: 1.4rem !important;
 }
 
 .otp-input-fields {
-  .form-floating>.form-control {
+  .form-floating > .form-control {
     padding-top: 0.75rem !important;
     padding-left: 5px !important;
   }
 }
 
 .country-field-code {
-  .form-floating>.form-control {
+  .form-floating > .form-control {
     padding-top: 0.75rem !important;
     padding-left: 5px !important;
   }
 }
 
 .form-floating {
-
-  &>.form-control:focus~label,
-  &>.form-control:not(:placeholder-shown)~label,
-  &>.form-select~label {
+  & > .form-control:focus ~ label,
+  & > .form-control:not(:placeholder-shown) ~ label,
+  & > .form-select ~ label {
     opacity: 1 !important;
     transform: scale(0.85) translate(25px, 0);
     top: 3px !important;
@@ -190,11 +188,11 @@
     }
   }
 
-  &>textarea.form-control~label {
+  & > textarea.form-control ~ label {
     top: 0 !important;
   }
 
-  &>textarea.form-control:focus~label {
+  & > textarea.form-control:focus ~ label {
     opacity: 1 !important;
     transform: scale(0.85) translate(25px, 0) !important;
     top: -10px;
@@ -219,7 +217,7 @@
       width: calc(100% - 17px);
     }
 
-    &>textarea.form-control~label {
+    & > textarea.form-control ~ label {
       // top: -1px !important;
     }
   }
@@ -303,7 +301,6 @@ span {
 }
 
 .form-select {
-
   // text-transform: capitalize;
   &:disabled {
     opacity: 0.5;
@@ -346,7 +343,7 @@ span {
 }
 
 .form-floating {
-  &>.form-select {
+  & > .form-select {
     &.font-light {
       font-weight: 500 !important;
       color: $col1 !important;
@@ -364,7 +361,6 @@ input[type='radio'] {
 
 .inbox-tabcontent {
   .quick-reply {
-
     .css-13cymwt-control,
     .css-t3ipsp-control {
       border-radius: 10px;
@@ -389,7 +385,6 @@ input[type='radio'] {
 .rbt {
   input {
     &.form-control {
-
       &:hover,
       &:focus {
         border: none;
@@ -399,13 +394,13 @@ input[type='radio'] {
 }
 
 .form-floating {
-  &>textarea.form-control:focus~label {
+  & > textarea.form-control:focus ~ label {
     transform: scale(0.85) translate(15px, 0) !important;
     height: auto;
     background-color: $col6;
   }
 
-  &>textarea.form-control:not(:placeholder-shown)~label {
+  & > textarea.form-control:not(:placeholder-shown) ~ label {
     background-color: $col6 !important;
     max-height: 25px;
     padding-top: 2px;
@@ -453,7 +448,7 @@ textarea {
 
 .input-places {
   .form-floating {
-    &>.form-control {
+    & > .form-control {
       &::placeholder {
         color: $col2 !important;
         font-weight: 400;
@@ -498,14 +493,14 @@ input[type='password']::-ms-clear {
 
 body {
   .form-floating {
-    &>label {
+    & > label {
       padding-left: 1rem;
     }
   }
 }
 
-.form-floating>.form-control:disabled~label,
-.form-floating> :disabled~label {
+.form-floating > .form-control:disabled ~ label,
+.form-floating > :disabled ~ label {
   opacity: 0.5 !important;
 }
 
@@ -529,7 +524,7 @@ body {
   }
 
   textarea {
-    &+label {
+    & + label {
       z-index: 10;
 
       &::before {
@@ -616,8 +611,8 @@ body {
   .select-user {
     border: none !important;
 
-    &>span {
-      &+div {
+    & > span {
+      & + div {
         border: solid 1px $col22 !important;
         box-shadow: none !important;
         min-height: 58px;
