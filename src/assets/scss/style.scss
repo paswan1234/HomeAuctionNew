@@ -94,6 +94,7 @@ body {
         }
 
         button {
+
           &.inc-btn,
           &.dis-btn {
             display: flex;
@@ -106,10 +107,11 @@ body {
             height: 32px;
             text-align: center;
             line-height: 32px;
-            border-radius: 4px;
+            border-radius: 50%;
             font-size: 24px;
             background: transparent;
             color: $col1;
+            padding: 0 0;
           }
         }
       }
@@ -124,6 +126,7 @@ body {
       background: transparent !important;
       border: solid 1px #ccc !important;
       color: $col1 !important;
+      min-width: 85px;
     }
   }
 }
