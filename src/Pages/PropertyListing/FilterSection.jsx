@@ -187,9 +187,14 @@ function FilterSection({
           </Accordion.Item>
         </Accordion>
       </div>
-      <div className="d-flex gap-5 mt-2">
-        <Button onClick={handleResetFilter} text="Reset" />
+      <div className="d-flex justify-content-end gap-3 mt-3">
         <Button
+          variant="outline-secondary"
+          onClick={handleResetFilter}
+          text="Reset"
+        />
+        <Button
+          variant="primary"
           onClick={() => {
             getPropertyList(
               selectedListName,

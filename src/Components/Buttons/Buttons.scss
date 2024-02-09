@@ -8,8 +8,26 @@
   @include font-family;
   font-family: inherit;
   position: relative;
-  line-height: 1;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  line-height: 17px;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &.primary {
+    background: $col4;
+    border: solid 1px $col4;
+    color: $col6;
+
+    &:hover {
+      background: $col2;
+      border: solid 1px $col2;
+    }
+  }
+
   // text-transform: capitalize;
 
   &.outline-secondary {
@@ -18,13 +36,16 @@
     color: $col5;
     background-color: transparent;
     transition: 0.3s all;
+
     &:hover,
     &:focus {
-      background: $col2;
+      background: $col15;
     }
+
     &.btn-gray {
       border: solid 1px $col2;
       background: transparent;
+
       &:hover,
       &:focus {
         border: solid 1px $col2;
