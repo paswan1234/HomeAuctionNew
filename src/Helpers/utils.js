@@ -66,3 +66,7 @@ export const handleKeyDownOnlyNumbers = (event) => {
   }
   event.preventDefault()
 }
+
+export const addCommasToNumber = (number) => {
+  return parseInt(number, 10).toLocaleString()
+}

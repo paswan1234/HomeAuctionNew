@@ -38,7 +38,7 @@ export default function PropertyCard({ propertyData }) {
           <div className="sliderListing">
             <ul className="clearfix d-flex align-items-center">
               <li>
-                <b className="text-col1">{propertyData.BedroomsTotal || 1}</b>
+                <b className="text-col1">{propertyData.BedroomsTotal}</b>
                 beds
               </li>
               <li>

@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { useCallback, useEffect, useState } from 'react'
 
 import { Col, Container, Row } from 'react-bootstrap'
@@ -5,6 +6,7 @@ import { useParams } from 'react-router-dom'
 import LoaderComponent from '@auction/Components/Loader/LoaderComponent'
 import Pagination from '@auction/Components/Pagination'
 import PropertyCard from '@auction/Components/PropertyCard'
+import RecordNotFound from '@auction/Components/RecordNotFound'
 import { capitalizeFirstLetter } from '@auction/Helpers'
 import useCustomToast from '@auction/Hooks/useCustomToast'
 import Footer from '@auction/Layout/Footer'
@@ -26,7 +28,8 @@ function PropertyListingpage() {
   const [totalPageCount, setTotalPageCount] = useState(0)
   const [forcePage, setForcePage] = useState(0)
   const [pageNo, setPageNo] = useState(1)
-  const [selectedListName, setSelectedListName] = useState([])
+  const [selectedListName, setSelectedListName] = useState(['Auction'])
+  const [propertyName, setPropertyName] = useState('')
   const [selectedPropertyName, setSelectedPropertyName] = useState([])
   const [maxBaths, setMaxBaths] = useState(0)
   const [maxBeds, setMaxBeds] = useState(0)
@@ -35,19 +38,31 @@ function PropertyListingpage() {
   const [update, setUpdate] = useState(0)
 
   const getPropertyList = useCallback(
-    async (listType = [], propertyType = [], baths = 0, beds = 0) => {
+    async (
+      property,
+      listType = [],
+      propertyType = [],
+      baths = 0,
+      beds = 0,
+      minLiveArea = '',
+      maxLiveArea = ''
+    ) => {
       const payload = {
         city,
         state,
         zip,
         PageNumber: pageNo,
         PageSize: 9,
-        PropertyType: propertyType.join(','),
-        PropertySubType: listType.join(','),
+        PropertyType: property,
+        PropertySubType: propertyType.join(','),
+        DistressStatus: listType.join(','),
         MaxBath: baths || '',
         MaxBed: beds || '',
+        MinLivingArea: minLiveArea,
+        MaxLivingArea: maxLiveArea,
         update,
       }
+      setIsLoading(true)
       try {
         const result = await mainApiService('getPropertyList', payload)
         if (result?.data?.Data?.Records?.length) {
@@ -57,6 +72,7 @@ function PropertyListingpage() {
         } else {
           setPropertyList([])
           setTotalPageCount(0)
+          setIsLoading(false)
         }
       } catch (err) {
         errorDispatch(err)
@@ -67,19 +83,29 @@ function PropertyListingpage() {
   )
 
   useEffect(() => {
-    getPropertyList(selectedListName, selectedPropertyName, maxBaths, maxBeds)
+    getPropertyList(
+      propertyName,
+      selectedListName,
+      selectedPropertyName,
+      maxBaths,
+      maxBeds,
+      minArea,
+      maxArea
+    )
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pageNo, getPropertyList])
+  }, [pageNo, getPropertyList, update])
 
   const handleResetFilter = () => {
-    setSelectedListName([])
+    setPageNo(1)
+    setForcePage(0)
+    setSelectedListName(['Auction'])
     setSelectedPropertyName([])
+    setPropertyName('')
     setMaxBaths(0)
     setMaxBeds(0)
-    setMinArea(500)
-    setMaxArea(2100)
-    setPageNo(1)
-    setUpdate((prev) => prev + 1)
+    setMinArea('')
+    setMaxArea('')
+    setUpdate(0)
   }
 
   return (
@@ -92,6 +118,8 @@ function PropertyListingpage() {
               <FilterSection
                 selectedListName={selectedListName}
                 selectedPropertyName={selectedPropertyName}
+                propertyNamed={propertyName}
+                setPropertyName={setPropertyName}
                 maxBaths={maxBaths}
                 maxBeds={maxBeds}
                 minArea={minArea}
@@ -102,8 +130,8 @@ function PropertyListingpage() {
                 setMaxBeds={setMaxBeds}
                 setMinArea={setMinArea}
                 setMaxArea={setMaxArea}
+                setUpdate={setUpdate}
                 handleResetFilter={handleResetFilter}
-                getPropertyList={getPropertyList}
               />
             </Col>
             <Col lg={8} xl={9}>
@@ -112,7 +140,7 @@ function PropertyListingpage() {
                   color="col4"
                   className="d-flex justify-content-center align-items-center new-class"
                 />
-              ) : (
+              ) : propertyList?.length ? (
                 <>
                   <div className="titleSection mt-4 mt-lg-0">
                     <h2 className="text-col1 fs-24 fw500">
@@ -138,10 +166,13 @@ function PropertyListingpage() {
                       handlePageClick={(event) => {
                         setPageNo(event.selected + 1)
                         setForcePage(event.selected)
+                        setUpdate((prev) => prev + 1)
                       }}
                     />
                   )}
                 </>
+              ) : (
+                <RecordNotFound />
               )}
             </Col>
           </Row>

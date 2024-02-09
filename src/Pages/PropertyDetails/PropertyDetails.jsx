@@ -1,7 +1,9 @@
 import { Col, Container, Row, Table } from 'react-bootstrap'
+import { useLocation } from 'react-router-dom'
 import Breadcrumb from '@auction/Components/Breadcrumb'
 import Button from '@auction/Components/Buttons/Button'
 import Image from '@auction/Components/Image'
+import { addCommasToNumber } from '@auction/Helpers'
 import Footer from '@auction/Layout/Footer'
 import Header from '@auction/Layout/Header'
 
@@ -16,6 +18,9 @@ import IconFour from '@auction/assets/images/svg/ico4.svg'
 import QueIcon from '@auction/assets/images/svg/que.svg'
 
 export default function PropertyDetails() {
+  const { state } = useLocation()
+  const { property } = state
+
   return (
     <>
       <Header />
@@ -24,8 +29,7 @@ export default function PropertyDetails() {
           <Breadcrumb />
         </div>
         <h1 className="fw600 fs-24 text-col1 mb-4">
-          Pre-foreclosure S Kimbark Ave 442 E 84th Pl, Los Angeles, CA 90003
-          $157,800
+          {property.Address}${property.RentValue}
         </h1>
         <Row>
           <Col md={7} lg={8}>
@@ -36,15 +40,15 @@ export default function PropertyDetails() {
                   <div className="toLeftTitle">
                     <div className="d-flex flex-wrap align-items-center mb-2">
                       <div className="dot purple" />
-                      <p className="mb-0 ftSze14 ftWgt500">PRE-FORECLOSURE</p>
+                      <p className="mb-0 ftSze14 ftWgt500">
+                        {property.saletype}
+                      </p>
                     </div>
                     <div className="titleLefthead mb-2">
                       <h2 className="text-col1 fs-24 fw600">
                         LOS ARROYOS DEL ESTE RESUB LOT 152
                       </h2>
-                      <p className="fs-18 fw400 mb-16">
-                        442 E 84th Pl, Los Angeles, CA 90003
-                      </p>
+                      <p className="fs-18 fw400 mb-16">{property.Address}</p>
                     </div>
                     <div className="d-flex align-items-center">
                       <ul className="m-0 p-0 list-style-none d-flex flex-wrap property-ul">
@@ -55,7 +59,9 @@ export default function PropertyDetails() {
                             name="Icon"
                             className="img-fuild"
                           />
-                          <span className="fs-18 fw400 text-col1">1-3</span>{' '}
+                          <span className="fs-18 fw400 text-col1">
+                            {property.BedroomsTotal}
+                          </span>{' '}
                           Beds
                         </li>
                         <li className="d-flex align-items-center ml-12 fs-18 fw400 text-col5">
@@ -65,7 +71,10 @@ export default function PropertyDetails() {
                             name="Icon"
                             className="img-fuild"
                           />
-                          <span className="fs-18 fw400 text-col1">2</span> Baths
+                          <span className="fs-18 fw400 text-col1">
+                            {property.BathroomsTotalInteger}
+                          </span>{' '}
+                          Baths
                         </li>
                         <li className="d-flex align-items-center ml-12 fs-18 fw400 text-col5">
                           <Image
@@ -75,7 +84,7 @@ export default function PropertyDetails() {
                             className="img-fuild"
                           />
                           <span className="fs-18 fw400 text-col1">
-                            1,210 Sqft
+                            {property.LivingArea} Sqft
                           </span>
                         </li>
                         <li className="d-flex align-items-center ml-12 fs-18 fw400 text-col5">
@@ -86,7 +95,8 @@ export default function PropertyDetails() {
                             className="img-fuild"
                           />
                           <span className="fs-18 fw400 text-col1">
-                            6,766 Lot Size
+                            {addCommasToNumber(property.LotSizeSquareFeet)} Lot
+                            Size
                           </span>
                         </li>
                       </ul>
@@ -95,7 +105,9 @@ export default function PropertyDetails() {
                 </Col>
                 <Col md={4} lg={4} xl={3} className="ms-auto text-end">
                   <div className="d-flex flex-wrap mt-3 mt-md-0 align-items-bottom text-nowrap">
-                    <h3 className="fs-32 fw700 mb-0 me-2">$112,000</h3>
+                    <h3 className="fs-32 fw700 mb-0 me-2">
+                      ${property.RentValue}
+                    </h3>
                     <div className="d-flex align-items-center position-relative min-width70">
                       <p className="fs-14 fw500 text-col5 mb-0">Est. Value</p>
                     </div>
