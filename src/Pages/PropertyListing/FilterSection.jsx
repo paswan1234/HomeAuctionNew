@@ -71,7 +71,7 @@ function FilterSection({
           <Accordion.Item eventKey="1">
             <Accordion.Header>Property Types</Accordion.Header>
             <Accordion.Body className="px-0 pb-0">
-              <div className="d-flex mb-2 gap-5">
+              <div className="d-flex mb-3 gap-5">
                 <RadioBoxComponent
                   label="Residential"
                   value="Residential"

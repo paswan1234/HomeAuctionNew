@@ -3,6 +3,7 @@ import TopHeader from '@auction/Layout/Header'
 
 import BannerSection from './BannerSection'
 import CardOne from './CardOne'
+import ForeclosureSection from './ForeclosureSection'
 import HomePropertyList from './HomePropertyList'
 import NewsletterSection from './NewsletterSection'
 import PopularCity from './PopularCity'
@@ -18,6 +19,7 @@ function DashboardPage() {
       <NewsletterSection />
       <HomePropertyList />
       <PopularCity />
+      <ForeclosureSection />
       <Footer />
     </div>
   )

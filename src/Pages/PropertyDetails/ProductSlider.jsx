@@ -16,7 +16,7 @@ function ProductSlider() {
             </div>
             <div className="imageAboveTags">
               <div className="d-flex align-items-center">
-                <div className="d-flex align-items-center whiteBox fs-16 fw500 text-col1 me-2">
+                <div className="d-flex align-items-center whiteBox fs-16 fw500 text-col1 me-1 me-sm-2">
                   <Image src={PhotosIcon} name="Photo" className="me-2" /> See
                   All 32 Photos
                 </div>
