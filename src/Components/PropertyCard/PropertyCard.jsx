@@ -32,7 +32,9 @@ export default function PropertyCard({ propertyData }) {
           </div>
           <div className="d-flex align-items-top">
             <div>
-              <h4 className="fw500 fs-18 mb-0">{propertyData.Address}</h4>
+              <h4 className="fw500 fs-18 mb-0 line-clamp-two">
+                {propertyData.Address}
+              </h4>
             </div>
           </div>
           <div className="sliderListing">

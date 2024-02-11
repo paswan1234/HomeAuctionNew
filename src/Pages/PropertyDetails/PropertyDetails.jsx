@@ -16,6 +16,8 @@ import IconTwo from '@auction/assets/images/svg/ico2.svg'
 import IconThree from '@auction/assets/images/svg/ico3.svg'
 import IconFour from '@auction/assets/images/svg/ico4.svg'
 import QueIcon from '@auction/assets/images/svg/que.svg'
+import { ReactComponent as BusIcon } from '@auction/assets/images/svg/transit.svg'
+import { ReactComponent as PersonIcon } from '@auction/assets/images/svg/walkScore.svg'
 
 export default function PropertyDetails() {
   const { state } = useLocation()
@@ -345,6 +347,272 @@ export default function PropertyDetails() {
                   </tr>
                 </tbody>
               </Table>
+            </div>
+            <div className="map-section mb-4">
+              <iframe
+                title="map"
+                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.7540606063408!2d28.07203867528714!3d-26.041601877177097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95730410ea8d3d%3A0x9ffbfbf8166c1cc5!2sPinewood%20Office%20Park!5e0!3m2!1sen!2sin!4v1707573718951!5m2!1sen!2sin" allowFullScreen frameBorder="0"`}
+              />
+            </div>
+            <div className="walk-section mb-5">
+              <h2 className="mb-2 fs-20 text-col1 fw600">
+                Neighborhoods Nearby of 405 Great Rd #16, Acton, MA, 07120
+              </h2>
+              <ul className="m-0 p-0 list-style-none">
+                <li className="mb-3">
+                  <div className="media d-flex align-items-center">
+                    <div>
+                      <div className="progress" data-percentage="74">
+                        <span className="progress-left">
+                          <span className="progress-bar" />
+                        </span>
+                        <span className="progress-right">
+                          <span className="progress-bar" />
+                        </span>
+                        <div className="progress-value">
+                          <div className="line-17">
+                            <span className="purpleText fw700 fs-16">75</span>
+                            <span className="text-uppercase fw400">of 100</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-3">
+                      <div className="mt-0 d-flex align-items-center mb-0">
+                        <span className="pointer me-2">
+                          <PersonIcon />
+                        </span>
+                        <h6 className="fs-16 fw600 text-col1 mb-0">
+                          Walk Score
+                        </h6>
+                        <div className="position-relative infoBox">
+                          <i className="fa fa-info-circle" />
+                        </div>
+                      </div>
+                      <p className="fs-14 fw400 text-col5 mb-0">
+                        Blessed Rock Apartment is very walkable and have good
+                        walk score. Most errands can be accomplished on foot.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div className="media d-flex align-items-center">
+                    <div>
+                      <div className="progress" data-percentage="74">
+                        <span className="progress-left">
+                          <span className="progress-bar" />
+                        </span>
+                        <span className="progress-right">
+                          <span className="progress-bar" />
+                        </span>
+                        <div className="progress-value">
+                          <div className="line-17">
+                            <span className="purpleText fw700 fs-16">87</span>
+                            <span className="text-uppercase fw400">of 100</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-3">
+                      <div className="mt-0 d-flex align-items-center mb-0">
+                        <span className="pointer me-2">
+                          <BusIcon />
+                        </span>
+                        <h6 className="fs-16 fw600 text-col1 mb-0">
+                          Transit Score
+                        </h6>
+                        <div className="position-relative infoBox">
+                          <i className="fa fa-info-circle" />
+                        </div>
+                      </div>
+                      <p className="fs-14 fw400 text-col5 mb-0">
+                        Blessed Rock Apartment has good transit score meaning
+                        many nearby public transportation options are available.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div className="school-tables mb-5">
+              <h2 className="mb-2 fs-20 text-col1 fw600">
+                Schools Nearby of 405 Great Rd #16, Acton, MA, 07120
+              </h2>
+              <Table responsive>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Grades</th>
+                    <th>Urban Center</th>
+                    <th>City, State</th>
+                    <th>
+                      <span className="d-none">Action</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div className="td-body">
+                        <h5 className="mt-0 mb-0 fs-16 fw500 text-col19">
+                          Bella Vista Elementary
+                        </h5>
+                        <p className="mb-0 fs-14 fw400 text-col24">
+                          (323) 721-4335
+                        </p>
+                      </div>
+                    </td>
+                    <td>
+                      <h5 className="fs-16 fw500 text-col19">KG-5</h5>
+                    </td>
+                    <td>
+                      <h5 className="fs-16 fw500 text-col19">N/A</h5>
+                    </td>
+                    <td>
+                      <div className="td-body">
+                        <h5 className="mt-0 mb-0 fs-16 fw500 text-col19">
+                          Monterey Park, CA
+                        </h5>
+                        <p className="mb-0 fs-14 fw400 text-col24">15 Miles</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="td-body d-flex justify-content-end">
+                        <Button text="More Info" className="outline-btns" />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="td-body">
+                        <h5 className="mt-0 mb-0 fs-16 fw500 text-col19">
+                          Bella Vista Elementary
+                        </h5>
+                        <p className="mb-0 fs-14 fw400 text-col24">
+                          (323) 721-4335
+                        </p>
+                      </div>
+                    </td>
+                    <td>
+                      <h5 className="fs-16 fw500 text-col19">KG-5</h5>
+                    </td>
+                    <td>
+                      <h5 className="fs-16 fw500 text-col19">N/A</h5>
+                    </td>
+                    <td>
+                      <div className="td-body">
+                        <h5 className="mt-0 mb-0 fs-16 fw500 text-col19">
+                          Monterey Park, CA
+                        </h5>
+                        <p className="mb-0 fs-14 fw400 text-col24">15 Miles</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="td-body d-flex justify-content-end">
+                        <Button text="More Info" className="outline-btns" />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="td-body">
+                        <h5 className="mt-0 mb-0 fs-16 fw500 text-col19">
+                          Bella Vista Elementary
+                        </h5>
+                        <p className="mb-0 fs-14 fw400 text-col24">
+                          (323) 721-4335
+                        </p>
+                      </div>
+                    </td>
+                    <td>
+                      <h5 className="fs-16 fw500 text-col19">KG-5</h5>
+                    </td>
+                    <td>
+                      <h5 className="fs-16 fw500 text-col19">N/A</h5>
+                    </td>
+                    <td>
+                      <div className="td-body">
+                        <h5 className="mt-0 mb-0 fs-16 fw500 text-col19">
+                          Monterey Park, CA
+                        </h5>
+                        <p className="mb-0 fs-14 fw400 text-col24">15 Miles</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="td-body d-flex justify-content-end">
+                        <Button text="More Info" className="outline-btns" />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="td-body">
+                        <h5 className="mt-0 mb-0 fs-16 fw500 text-col19">
+                          Bella Vista Elementary
+                        </h5>
+                        <p className="mb-0 fs-14 fw400 text-col24">
+                          (323) 721-4335
+                        </p>
+                      </div>
+                    </td>
+                    <td>
+                      <h5 className="fs-16 fw500 text-col19">KG-5</h5>
+                    </td>
+                    <td>
+                      <h5 className="fs-16 fw500 text-col19">N/A</h5>
+                    </td>
+                    <td>
+                      <div className="td-body">
+                        <h5 className="mt-0 mb-0 fs-16 fw500 text-col19">
+                          Monterey Park, CA
+                        </h5>
+                        <p className="mb-0 fs-14 fw400 text-col24">15 Miles</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="td-body d-flex justify-content-end">
+                        <Button text="More Info" className="outline-btns" />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="td-body">
+                        <h5 className="mt-0 mb-0 fs-16 fw500 text-col19">
+                          Bella Vista Elementary
+                        </h5>
+                        <p className="mb-0 fs-14 fw400 text-col24">
+                          (323) 721-4335
+                        </p>
+                      </div>
+                    </td>
+                    <td>
+                      <h5 className="fs-16 fw500 text-col19">KG-5</h5>
+                    </td>
+                    <td>
+                      <h5 className="fs-16 fw500 text-col19">N/A</h5>
+                    </td>
+                    <td>
+                      <div className="td-body">
+                        <h5 className="mt-0 mb-0 fs-16 fw500 text-col19">
+                          Monterey Park, CA
+                        </h5>
+                        <p className="mb-0 fs-14 fw400 text-col24">15 Miles</p>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="td-body d-flex justify-content-end">
+                        <Button text="More Info" className="outline-btns" />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+              <Button
+                text="Load More"
+                className="outline-btns load-btns d-block w-100"
+              />
             </div>
           </Col>
           <Col md={5} lg={4}>
